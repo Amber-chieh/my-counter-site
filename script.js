@@ -15,7 +15,7 @@ document.getElementById('inspectionForm').addEventListener('submit', function(ev
 
     const submitButton = form.querySelector('button[type="submit"]');
     submitButton.disabled = true;
-    submitButton.textContent = '提交中...請稍候';
+    submitButton.textContent = '提交中，請稍候';
 
     // 使用 Fetch API 進行非同步提交 (解決 405 錯誤的關鍵)
     fetch(GOOGLE_SCRIPT_URL, {
@@ -31,7 +31,7 @@ document.getElementById('inspectionForm').addEventListener('submit', function(ev
     })
     .then(result => {
         if (result && result.result === 'success') {
-            alert('巡察報告提交成功！數據已寫入 Google 試算表。');
+            alert('巡察報告提交成功！感謝有您守護穀倉的安全，辛苦了！');
             form.reset();
         } else {
             throw new Error('Apps Script 執行錯誤: ' + (result ? result.error : '未知錯誤'));
