@@ -38,10 +38,12 @@ document.getElementById('inspectionForm').addEventListener('submit', function(ev
         }
     })
     .catch(error => {
+        // 處理網路錯誤或腳本錯誤
         console.error('提交錯誤:', error);
-        alert('提交失敗！錯誤訊息：' + error.message + ' (請確認 Apps Script 權限)');
+        alert('提交失敗！錯誤訊息：' + error.message); 
     })
     .finally(() => {
+        // 無論成功或失敗，都恢復按鈕狀態
         submitButton.disabled = false;
         submitButton.textContent = '提交巡察報告';
     });
